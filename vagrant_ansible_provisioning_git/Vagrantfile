@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
       #ssh,http 포트포워딩 
       web.vm.synced_folder "../shared_data", "/shared_data", disabled: true
       web.vm.provision "shell", path: "password_setting_change.sh"
+      #프로비저닝 - config파일 설정 쉘 스크립트
   end
 
  
@@ -35,9 +36,11 @@ Vagrant.configure("2") do |config|
       ans.vm.provision "shell", inline: "yum install epel-release -y"
       ans.vm.provision "shell", inline: "yum install ansible -y"
       ans.vm.provision "shell", inline: "yum install tree -y"
+      # 프로비저닝 - epel 저장소 추가, 앤서블 설치, 트리 설치
       ans.vm.provision "file", source: "ansible-env.yml", destination: "ansible-env.yml"
       ans.vm.provision "shell", inline: "ansible-playbook ansible-env.yml"
       ans.vm.provision "file", source: "auto_ssh_connect.yml", destination: "auto_ssh_connect.yml"
       ans.vm.provision "shell", inline: "ansible-playbook auto_ssh_connect.yml", privileged: false
+      # 프로비저닝 - ansible 환경설정, ssh 설정
   end
 end
