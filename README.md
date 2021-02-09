@@ -11,6 +11,7 @@
 
 ## 개발 도구
 ![vscode][vscode-image]
+![vagrant][vagrant-image]
 ![ansible][ansible-image]
 
 
@@ -20,13 +21,15 @@
 
 
 
-[window-image]: https://img.shields.io/badge/Windows-10-blue?logo=windows&logoColor=white
-[centos-image]: https://img.shields.io/badge/centOS-7-green?logo=centos&logoColor=white
+[window-image]: https://img.shields.io/badge/Windows-10-0078D6?logo=windows&logoColor=white
+[centos-image]: https://img.shields.io/badge/centOS-7-262577?logo=centos&logoColor=white
 
-[ruby-image]: https://img.shields.io/badge/ruby-red?logo=ruby&logoColor=white
+[ruby-image]: https://img.shields.io/badge/ruby-CC342D?logo=ruby&logoColor=white
 [yaml-image]: https://img.shields.io/badge/YAML-white?logo=yaml&logoColor=white
 
 [vscode-image]: https://img.shields.io/badge/VScode-1.52.1-blueviolet?logo=visual-studio-code&logoColor=white
-[ansible-image]: https://img.shields.io/badge/ansible-2.9.17-red?logo=ansible&logoColor=white
+[vagrant-image]: https://img.shields.io/badge/vagrant-2.2.14-1563FF?logo=vagrant&logoColor=white
+[ansible-image]: https://img.shields.io/badge/ansible-2.9.17-EE0000?logo=ansible&logoColor=white
+
 
 
