@@ -1,0 +1,43 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  #클라이언트 서버
+  config.vm.define "ansible-client001" do |web|
+      web.vm.box = "centos/7"
+      web.vm.provider "virtualbox" do |vb|
+          vb.name = "ansible-client001"
+      end
+      web.vm.host_name = "ansible-client001"
+      web.vm.network "public_network", ip: "주소를 적으시오."
+      web.vm.network "forwarded_port", guest: 22, host: 원하는 포트, auto_correct: true, id: "ssh" 
+      web.vm.network "forwarded_port", guest: 80, host: 원하는 포트, auto_correct: true
+      #ssh,http 포트포워딩 
+      web.vm.synced_folder "../shared_data", "/shared_data", disabled: true
+      web.vm.provision "shell", path: "password_setting_change.sh"
+  end
+
+ 
+
+  #앤서블 서버
+  config.vm.define "ansible-server" do |ans|
+      ans.vm.box = "centos/7"
+      ans.vm.provider "virtualbox" do |vb|
+          vb.name="ansible-server"
+      end
+      ans.vm.host_name = "ansible-server"
+      ans.vm.network "public_network", ip: "주소를 적으시오."
+      ans.vm.network "forwarded_port", guest: 22, host: 원하는 포트, auto_correct: true, id: "ssh"
+      ans.vm.network "forwarded_port", guest: 80, host: 원하는 포트, auto_correct: true
+      #ssh,http 포트포워딩
+      ans.vm.synced_folder "../shared_data", "/shared_data", disabled: true
+      ans.vm.provision "shell", inline: "yum install epel-release -y"
+      ans.vm.provision "shell", inline: "yum install ansible -y"
+      ans.vm.provision "shell", inline: "yum install tree -y"
+      ans.vm.provision "file", source: "ansible-env.yml", destination: "ansible-env.yml"
+      ans.vm.provision "shell", inline: "ansible-playbook ansible-env.yml"
+      ans.vm.provision "file", source: "auto_ssh_connect.yml", destination: "auto_ssh_connect.yml"
+      ans.vm.provision "shell", inline: "ansible-playbook auto_ssh_connect.yml", privileged: false
+  end
+end

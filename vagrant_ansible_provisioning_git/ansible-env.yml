@@ -1,0 +1,13 @@
+# setup-ansible-env.yml
+---
+- name: Setup for the Ansible's Environment
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: Add "/ect/ansible/hosts"
+      blockinfile:
+        path: /etc/ansible/hosts
+        block: |
+            [webservers]
+            #주소를 적으시오
