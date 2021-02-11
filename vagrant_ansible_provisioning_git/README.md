@@ -1,5 +1,5 @@
 ## Vagrantfile   
-- #### 베어그란트 설정 파일
+- #### 베이그란트 설정 파일
 
 ## ansible-env.yml
 - #### 프로비저닝용 / ansilbe 환경설정파일
