@@ -7,8 +7,8 @@
 ![centos][centos-image]
 
 ## 개발 언어
-<img src = https://user-images.githubusercontent.com/965439/27257414-2b830a24-539b-11e7-9d72-a01eaf1181ee.png  width="3.5%"> ![ruby][ruby-image]
-## ![yaml-image][yaml-image]
+![yaml-image][yaml-image]
+![ruby][ruby-image]
 
 ## 개발 도구
 ![vscode][vscode-image]
