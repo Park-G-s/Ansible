@@ -1,6 +1,5 @@
-# setup-ansible-env.yml
 ---
-- name: Setup for the Ansible's Environment
+- name: 앤서블 서버 환경 
   hosts: localhost
   gather_facts: no
 

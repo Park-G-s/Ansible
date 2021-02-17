@@ -4,13 +4,13 @@
 Vagrant.configure("2") do |config|
 
   #클라이언트 서버
-  config.vm.define "ansible-client001" do |web|
+  config.vm.define "ansible-client" do |web|
       web.vm.box = "centos/7"
       web.vm.provider "virtualbox" do |vb|
-          vb.name = "ansible-client001"
+          vb.name = "ansible-client"
       end
-      web.vm.host_name = "ansible-client001"
-      web.vm.network "public_network", ip: "주소를 적으시오."
+      web.vm.host_name = "ansible-client"
+      web.vm.network "public_network", ip: "172.30.1.45"
       web.vm.network "forwarded_port", guest: 22, host: 원하는 포트, auto_correct: true, id: "ssh" 
       web.vm.network "forwarded_port", guest: 80, host: 원하는 포트, auto_correct: true
       #ssh,http 포트포워딩 
@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
           vb.name="ansible-server"
       end
       ans.vm.host_name = "ansible-server"
-      ans.vm.network "public_network", ip: "주소를 적으시오."
+      ans.vm.network "public_network", ip: "172.30.1.44"
       ans.vm.network "forwarded_port", guest: 22, host: 원하는 포트, auto_correct: true, id: "ssh"
       ans.vm.network "forwarded_port", guest: 80, host: 원하는 포트, auto_correct: true
       #ssh,http 포트포워딩
