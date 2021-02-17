@@ -1,21 +1,22 @@
 ---
-  - name: install epel-release
+  - name: epel-release 설치
     action: "{{ ansible_pkg_mgr }} name=epel-release state=latest"
 
-  - name: install mariadb
+  - name: mariadb 설치
     action: "{{ ansible_pkg_mgr }} name=mariadb-server state=present"
 
-  - name: install python mysql support library
+  - name: python mysql 라이브러리 설치
     action: "{{ ansible_pkg_mgr }} name=MySQL-python state=latest"
 
-  - name: copy my.cnf file
+  - name: my.cnf file 복사
     template:
         src=my.cnf.j2 dest=/etc/my.cnf mode=0600
+        #my.cnf.j2파일을 /etc/my.cnf에 적용, root 읽기 쓰기 권한
 
-  - name: start mysql server
+  - name: mysql server 시작
     action: service name=mariadb state=started enabled=true
 
-  - name: update mysql root password
+  - name: mysql root password 업데이트
     mysql_user:
         login_user: root
         login_password: "{{ mysql.root_password }}"
@@ -24,20 +25,22 @@
         password: "{{ mysql.root_password }}"
         check_implicit_admin: yes
         priv: "*.*:ALL,GRANT"
+        #권한설정(모든 db 및 테이블에 접근권한 부여)
+
     with_items:
         - "{{ ansible_hostname }}"
         - 127.0.0.1
         - ::1
         - localhost
 
-  - name: remove test db
+  - name: test db 삭제
     mysql_db:
         login_user: root
         login_password: "{{ mysql.root_password }}"
         db: test
         state: absent
 
-  - name: create a new db
+  - name: 새로운 db 생성
     mysql_db:
         login_user: root
         login_password: "{{ mysql.root_password }}"
@@ -46,7 +49,7 @@
         encoding: "{{ mysql.encoding }}"
         state: present
 
-  - name: delete anonymouse user
+  - name: anonymouse user 삭제
     mysql_user:
         login_user: root
         login_password: "{{ mysql.root_password }}"
@@ -54,7 +57,7 @@
         host_all: yes
         state: absent
 
-  - name: create a new user
+  - name: new user 생성
     mysql_user:
         login_user: root
         login_password: "{{ mysql.root_password }}"

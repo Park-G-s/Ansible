@@ -1,9 +1,9 @@
 ---
 # handlers for nginx
-- name: start nginx web server
+- name: nginx web server 시작
   action: service name=nginx state=started
-- name: restart nginx web server
+- name: nginx web server 재시작
   action: service name=nginx state=restarted
 # handlers for php
-- name: restart php
+- name: php 재시작
   action: service name=php-fpm state=restarted
