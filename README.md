@@ -20,19 +20,26 @@
 2. 생성된 머신끼리 서로 ssh connection이 완료 되어야함.
 
 ## 구성도
-![캡처](https://user-images.githubusercontent.com/73996998/108855098-f02bb680-762b-11eb-92cc-cfbc44e7e692.GIF)
+<img src="https://user-images.githubusercontent.com/73996998/108855098-f02bb680-762b-11eb-92cc-cfbc44e7e692.GIF" width="80%" height="30%">
+
 
 ## 스크린샷
 1. 플레이북 실행
-![플레이북 실행~](https://user-images.githubusercontent.com/73996998/108855778-b14a3080-762c-11eb-9b83-559f19d1ce86.GIF)
+
+<img src="https://user-images.githubusercontent.com/73996998/108855778-b14a3080-762c-11eb-9b83-559f19d1ce86.GIF" width="40%" height="30%">
 
 2. DB 연동확인
-![워드프레스 db연동확인](https://user-images.githubusercontent.com/73996998/108855613-8c55bd80-762c-11eb-97e0-bf50b246292d.GIF)
+
+<img src="https://user-images.githubusercontent.com/73996998/108855613-8c55bd80-762c-11eb-97e0-bf50b246292d.GIF" width="40%" height="30%">
 
 3. 워드프레스 설치 완료(1)
-![워드프레스 서버 설치완료](https://user-images.githubusercontent.com/73996998/108855340-3e40ba00-762c-11eb-8c27-fa2eead8bdbb.GIF)
- 워드프레스 설치 완료(2)
-![워드프레스 서버 설치완료2](https://user-images.githubusercontent.com/73996998/108855277-2cf7ad80-762c-11eb-816e-b758cc85c4dd.GIF)
+
+<img src="https://user-images.githubusercontent.com/73996998/108855340-3e40ba00-762c-11eb-8c27-fa2eead8bdbb.GIF" width="80%" height="30%">
+ 
+        워드프레스 설치 완료(2)
+
+<img src="https://user-images.githubusercontent.com/73996998/108855277-2cf7ad80-762c-11eb-816e-b758cc85c4dd.GIF" width="80%" height="30%">
+ 
 
 
 
